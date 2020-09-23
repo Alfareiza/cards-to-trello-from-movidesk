@@ -74,7 +74,7 @@ class SplashScreen(QMainWindow):
         self.show()
         # ==> END #
 
-    # ==> APP FUNCTIONS
+    # APP FUNCTIONS
     def progress(self):
         global counter
 
