@@ -11,12 +11,14 @@ import logging
 import threading
 
 from PySide2 import QtGui, QtWidgets, QtCore
-# from PyQt5 import QtCore, QtGui, QtWidgets
-from PySide2.QtGui import (QIntValidator, QMovie)
-from PySide2.QtWidgets import QFrame, QAbstractItemView, QLabel
+from PySide2.QtGui import (QIntValidator)
+from PySide2.QtWidgets import QFrame, QAbstractItemView
 from files.movidesk import get_ticket, parser_ticket_content
 from files.trello import load_boards, lists_of_lists, labels, members, id_of_list, id_of_members, id_of_labels, \
     create_card
+
+format = "%(asctime)s: %(message)s"
+logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
 
 
 class Ui_MainWindow(object):
@@ -58,32 +60,46 @@ class Ui_MainWindow(object):
     # Functions
     #
     def checkFields(self):
+        """
+        Método executado ao clicar no butão "Create"
+        :return: mensagem notificando o resultado.
+        """
         self.pushButton_create.hide()
-        # self.loadinginfo_animation.show()
         self.label_loading.show()
 
-        # self.label_loading.hide()
-        # print(self.movie.state())
-        # self.movie.stop()
-
         def showMessage(message):
-            # self.label_loading.show()
+            """
+            Último método executado, ele mostra a mensagem resultado da criação/avaliação do ticket
+            :param message: str:
+            :return: nothing
+            """
             self.label_loading.hide()
-            self.loadinginfo_animation.hide()
             self.pushButton_create.show()
             self.pop_up.show()
             self.label_closemessage.setText(message)
+            logging.info(f"Mensagem exibido     : {message}")
 
         def clean_fields():
+            """
+            Método executado se o ticket foi criado no trello. Ele limpa os campos.
+            :return: nothing
+            """
             self.line_ticket.setText('')
             self.comboBox_lists.setCurrentIndex(-1)
             for i in self.list_miembros.selectedItems():
                 i.setSelected(False)
             for i in self.list_etiquetas.selectedItems():
                 i.setSelected(False)
-            # self.line_ticket.setFocus(0)
 
         def validate_values(ticket_digitado, lista_escogida, labels_escogidos, miembros_escogidos):
+            """
+            Recebe finalmente os valores escolhidos e transforma-os em dados legíveis para o método create_card
+            :param ticket_digitado: str
+            :param lista_escogida: str
+            :param labels_escogidos: list of str
+            :param miembros_escogidos: list of str
+            :return: resp: dict: dados respondidos pela API do trello.
+            """
             name, description = parser_ticket_content(ticket_digitado)
             idList = id_of_list(lista_escogida)
             members = id_of_members(miembros_escogidos)
@@ -92,44 +108,49 @@ class Ui_MainWindow(object):
             return resp
 
         def thread_function():
-            logging.info("Thread %s: starting", )
+            """
+            Método chamado se digitou e escolheu uma lista. Avalia se o ticket existe e cria o card.
+            :return: message: str
+            """
+            # logging.info("Thread %s: starting", )
             if not get_ticket(self.line_ticket.text()):
-                text = "Ticket Inválido"
-                # self.line_ticket.setStyleSheet(self.styleLineEditError)
-                # self.pop_up.setStyleSheet(self.stylePopupError)
+                text = "Ticket Inválido ou Inexistente no Movidesk"
+                logging.info(f"Mensagem exibido     : {text}")
             else:
                 ticket_digitado = self.line_ticket.text()
                 lista_escogida = self.comboBox_lists.currentText()
                 labels_escogidos = [etiqueta.text() for etiqueta in self.list_etiquetas.selectedItems()]
                 miembros_escogidos = [miembro.text() for miembro in self.list_miembros.selectedItems()]
-                validate_values(ticket_digitado, lista_escogida, labels_escogidos, miembros_escogidos)
+                resp_criacao = validate_values(ticket_digitado, lista_escogida, labels_escogidos, miembros_escogidos)
+                logging.info(f"Resposta da criação - nome do ticket : {resp_criacao['name']}")
+                logging.info(f"Resposta da criação - link do ticket : {resp_criacao['shortUrl']}")
                 text = f"Ticket {ticket_digitado} criado com succeso!"
-                # text = "Ticket criado com succeso!"
                 clean_fields()
             showMessage(text)
-            logging.info("Thread %s: finishing", )
+            # logging.info("Thread %s: finishing", )
 
         def fields_validation():
+            """
+            Método principal que avalia as informações escolhidas/digitadas pelo user.
+            Ao longo desse método são executados os outros métodos.
+            :return: message: str:
+            """
             #  Checking Ticket an List
             if not self.line_ticket.text():
                 text = "Por Favor Digite o Número do Ticket"
-                # self.line_ticket.setStyleSheet(self.styleLineEditError)
-                # self.pop_up.setStyleSheet(self.stylePopupError)
                 showMessage(text)
             elif self.comboBox_lists.currentText() == 'Seleciona Uma Lista':
                 text = "Seleciona Uma Lista"
-                # self.pop_up.setStyleSheet(self.stylePopupError)
                 showMessage(text)
             else:
-                format = "%(asctime)s: %(message)s"
-                logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
-                logging.info("Main    : before creating thread")
+                logging.info("Main    : Ticket digitado e lista selecionada")
+                # logging.info("Main    : before creating thread")
                 x = threading.Thread(target=thread_function)
-                logging.info("Main    : before running thread")
+                # logging.info("Main    : before running thread")
                 x.start()
-                logging.info("Main    : wait for the thread to finish")
+                # logging.info("Main    : wait for the thread to finish")
                 # x.join()
-                logging.info("Main    : all done")
+                # logging.info("Main    : all done")
 
         fields_validation()
 
@@ -186,11 +207,6 @@ class Ui_MainWindow(object):
         self.label_closemessage.setStyleSheet("color: rgb(0,0,0);")
         self.label_closemessage.setObjectName("label_closemessage")
         self.horizontalLayout_3.addWidget(self.label_closemessage)
-        # self.progressBar = QtWidgets.QProgressBar(self.top_bar)
-        # self.progressBar.setGeometry(50, 5, 350, 25)
-        # self.timer = QTimer()
-        # self.step = 0
-        # self.timer.setInterval(100)
         self.pushButton_close_error = QtWidgets.QPushButton(self.pop_up)
         self.pushButton_close_error.setMaximumSize(QtCore.QSize(20, 20))
         self.pushButton_close_error.setStyleSheet("QPushButton{    \n"
@@ -346,13 +362,6 @@ class Ui_MainWindow(object):
         self.label_loading.setObjectName("label_loading")
         self.label_loading.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.loadinginfo_animation = QLabel(self.content)
-        self.loadinginfo_animation.setGeometry(QtCore.QRect(130, 445, 126, 22))
-        self.movie = QMovie("loading4.gif")
-        self.loadinginfo_animation.setMovie(self.movie)
-        self.movie.start()
-        # self.timer = QTimer()
-
         self.label_miembros = QtWidgets.QLabel(self.content)
         self.label_miembros.setGeometry(QtCore.QRect(20, 206, 60, 13))
         self.label_miembros.setFont(font)
@@ -383,9 +392,8 @@ class Ui_MainWindow(object):
         # BT Close Popup
         self.pushButton_close_error.clicked.connect(lambda: self.pop_up.hide())
 
-        # Hide Elements
+        # Hide Elements in the Boot of Program
         self.pop_up.hide()
-        self.loadinginfo_animation.hide()
         self.label_loading.hide()
 
         # Button Create Ticket
@@ -398,8 +406,13 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def loaddata(self, MainWindow):
-        # Load Data
+        """
+        Procura as informações do trello e preenche a interface do usuário.
+        :param MainWindow:
+        :return: nothing.
+        """
         load_boards()
+        logging.info("Dados carregados do trello com sucesso!")
         name_of_lists = [dicts["name"] for dicts in lists_of_lists()]
         self.comboBox_lists.addItem('Seleciona Uma Lista')
         self.comboBox_lists.addItems(name_of_lists)
@@ -409,6 +422,7 @@ class Ui_MainWindow(object):
 
         name_of_members = [dicts["fullName"] for dicts in members()]
         self.list_miembros.addItems(name_of_members)
+        logging.info("Dados preenchidos na interface com sucesso!")
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

@@ -78,14 +78,14 @@ Pode ser que precise debugar pois algo não esperado esteja acontecendo, para is
 
 * [PyQT](https://www.riverbankcomputing.com/software/pyqt) - Graphic Library used for interface user.
 * [PySide](https://wiki.qt.io/PySide2) - Binding Library for Qt used for SplashScreen.
-* [API Trello](https://developer.atlassian.com/cloud/trello/rest/) - Dependency Management
-* [API Movidesk](https://atendimento.movidesk.com/kb/article/256/movidesk-ticket-api) - Used to generate RSS Feeds
+* [API Trello](https://developer.atlassian.com/cloud/trello/rest/) - Used to get information of trello. 
+* [API Movidesk](https://atendimento.movidesk.com/kb/article/256/movidesk-ticket-api) - Used to get information of tickets.
 
 ## Como contribuir
 
 Todo o código segue as normas PEP8, exceto para o max-line-length, que contém 120 caracteres. Cada função/classe/método/módulo deve ter docstrings.
 
-1. Fork o projeto e clone ou faz o seguinte: git clone https://github.com/Alfareiza/cards-to-trello-from-movidesk.git
+1. Fork o projeto e clona ele ou faz o seguinte: git clone https://github.com/Alfareiza/cards-to-trello-from-movidesk.git
 2. Instala o pipenv: `pip install pipenv`
 3. Instala as dependencias do dev: `pipenv install -d`
 4. Desenvolve os features com tests. (opcional por enquanto)
