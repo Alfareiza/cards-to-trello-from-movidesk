@@ -418,7 +418,7 @@ class Ui_MainWindow(object):
         self.comboBox_lists.setCurrentText(_translate("MainWindow", "Seleciona Uma Lista"))
         self.comboBox_lists.setPlaceholderText(_translate("MainWindow", "Seleciona Uma Lista"))
         self.pushButton_create.setText(_translate("MainWindow", "Create"))
-        self.label_miembros.setText(_translate("MainWindow", "Miembros"))
+        self.label_miembros.setText(_translate("MainWindow", "Membros"))
         self.label_etiquetas.setText(_translate("MainWindow", "Etiquetas"))
         self.label_loading.setText(_translate("MainWindow", "Loading..."))
 
