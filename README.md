@@ -8,10 +8,8 @@ Programa de escritorio que criar cards no trello a partir de tickets registrados
 
 ## Interface
 
-Carregamento Inicial.
 ![Splash Screen](https://github.com/Alfareiza/cards-to-trello-from-movidesk/blob/master/files/img/splash_screen_example.png?raw=True)
 
-Interface onde o usuário interage.
 ![Interface](https://github.com/Alfareiza/cards-to-trello-from-movidesk/blob/master/files/img/interface_example.png?raw=true)
 
 ## Vamos lá
