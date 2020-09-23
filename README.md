@@ -8,8 +8,11 @@ Programa de escritorio que criar cards no trello a partir de tickets registrados
 
 ## Interface
 
-![Splash Screen]()
-![Interface]()
+Carregamento Inicial.
+![Splash Screen](https://github.com/Alfareiza/cards-to-trello-from-movidesk/blob/master/files/img/splash_screen_example.png?raw=True)
+
+Interface onde o usuário interage.
+![Interface](https://github.com/Alfareiza/cards-to-trello-from-movidesk/blob/master/files/img/interface_example.png?raw=true)
 
 ## Vamos lá
 
@@ -51,7 +54,7 @@ python files/main.py
 ```
 
 Será executado um splashscreen que internamente terá os valores de Trello. Logo, vai carregar a interface onde poderá interagir da seguinte forma:
-- número do ticket (obrigatório):  digite o numero do ticket e o programa irá validar a existência dele quando digitar no butão "Create", e ter selecionado uma lista.
+- número do ticket (obrigatório):  digite o numero do ticket e o programa irá validar a existência dele quando digitar no botão "Create", e ter selecionado uma lista.
 - lista (obrigatório): selecione a lista onde o ticket vai ficar.
 - etiquetas (opcional): selecione quantas etiquetas deseje para o card.
 - membros (opcional): selecione quantos membros deseje para o card.
@@ -67,7 +70,7 @@ Será executado um splashscreen que internamente terá os valores de Trello. Log
 
 ### Como Debugar
 
-Pode ser que precise debugar pois algo não esperado esteja acontecendo, para isso, você deve executar pela linha de comando, ubicado na pasta do projeto o seguinte:
+Pode ser que precise debugar pois algo não esperado esteja acontecendo, para isso, no windows você deve executar pela linha de comando, ubicado na pasta do projeto o seguinte:
 
 ```
 ".venv\Scripts\python.exe" -X dev "files/main.py"
