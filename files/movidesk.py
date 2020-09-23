@@ -97,5 +97,5 @@ if __name__ == '__main__':
     # name, description = parser_ticket_content(int(ticket))
     # print(f'Name : {name}, Description : {description}')
     # print(f'Name : {len(name)}, Description : {len(description)}')
-    if get_ticket(ticket):
-        print(get_ticket(ticket))
+    # if get_ticket(ticket):
+    #     print(get_ticket(ticket))
