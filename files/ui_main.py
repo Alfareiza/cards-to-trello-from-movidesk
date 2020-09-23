@@ -412,7 +412,7 @@ class Ui_MainWindow(object):
         :return: nothing.
         """
         load_boards()
-        logging.info(f"Dados carregados do trello com sucesso!")
+        logging.info("Dados carregados do trello com sucesso!")
         name_of_lists = [dicts["name"] for dicts in lists_of_lists()]
         self.comboBox_lists.addItem('Seleciona Uma Lista')
         self.comboBox_lists.addItems(name_of_lists)
@@ -422,7 +422,7 @@ class Ui_MainWindow(object):
 
         name_of_members = [dicts["fullName"] for dicts in members()]
         self.list_miembros.addItems(name_of_members)
-        logging.info(f"Dados preenchidos na interface com sucesso!")
+        logging.info("Dados preenchidos na interface com sucesso!")
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
