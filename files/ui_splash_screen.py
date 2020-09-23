@@ -94,8 +94,6 @@ class Ui_SplashScreen(object):
 
         QMetaObject.connectSlotsByName(SplashScreen)
 
-    # setupUi
-
     def retranslateUi(self, SplashScreen):
         SplashScreen.setWindowTitle(QCoreApplication.translate(
             "SplashScreen", u"Cria Card no Trello de Movidesk", None))
