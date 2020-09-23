@@ -135,6 +135,7 @@ def id_of_members(list_of_members):
 
 def create_card(idList, name, description, members, labels):
     """
+    Cria Card no Trello a partir dos dados recebidos
     :param idList(str): id of the list where the card will be
     :param name(str): name of the card, comes from movidesk
     :param description(str): description of the card, comes from movidesk
