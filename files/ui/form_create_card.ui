@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>462</width>
+    <height>587</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>4YouSee Agent Support</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="file_rc.qrc">
+    <normaloff>:/icon/img/trello_and_movidesk_icone.png</normaloff>:/icon/img/trello_and_movidesk_icone.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(98, 114, 164);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="top_bar">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>45</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="pop_up">
+            <property name="maximumSize">
+             <size>
+              <width>450</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(250, 84, 87);
+border-radius: 7px;
+background-color: rgb(250, 163, 164);
+background-color: rgb(255, 160, 162);
+background-color: rgb(255, 164, 169);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>3</number>
+             </property>
+             <property name="rightMargin">
+              <number>10</number>
+             </property>
+             <property name="bottomMargin">
+              <number>3</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_closemessage">
+               <property name="text">
+                <string>Error</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_close_error">
+               <property name="maximumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{	
+	border-radius: 10px;
+	background-position: center;
+	background-image: url(:/close_image/img/closeicon2.png);
+}
+QPushButton:hover{
+	background-color: rgb(255, 255, 255);
+	color: rgb(200,200,200);
+}
+QPushButton:pressed{
+	background-color: rgb(35,35,35);	
+	color: rgb(200,200,200);
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="main">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QFrame" name="content">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>370</width>
+              <height>500</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>370</width>
+              <height>500</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(56, 58, 59);
+border-radius: 5px;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QFrame" name="logo">
+             <property name="geometry">
+              <rect>
+               <x>30</x>
+               <y>10</y>
+               <width>311</width>
+               <height>141</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-image: url(:/logo/img/trello_and_movidesk.png);
+background-repeat: no-repeat;
+background-position: center;
+</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="line_ticket">
+             <property name="geometry">
+              <rect>
+               <x>40</x>
+               <y>170</y>
+               <width>115</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit{
+	border: 2px solid rgb(120,120,120);
+	border-radius: 5px;
+	padding: 1px 3px;
+	background-color: rgb(79,79,79);
+	color: rgb(185, 185, 185);
+}
+QLineEdit:hover{
+	border: 2px solid rgb(70,70,70);
+}
+QLineEdit:focus{
+	border: 2px solid rgb(0,102,204);
+	color: rgb(200,200,200);
+}</string>
+             </property>
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="maxLength">
+              <number>5</number>
+             </property>
+             <property name="placeholderText">
+              <string>Número do Ticket</string>
+             </property>
+            </widget>
+            <widget class="QComboBox" name="comboBox_lists">
+             <property name="geometry">
+              <rect>
+               <x>200</x>
+               <y>170</y>
+               <width>141</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox{
+	border: 2px solid rgb(120,120,120);
+	border-radius: 5px;
+	padding: 1px 3px;
+	background-color: rgb(79,79,79);
+	color: rgb(185, 185, 185);
+}
+QComboBox:hover{
+	border: 2px solid rgb(70,70,70);
+}
+QComboBox:focus{
+	border: 2px solid rgb(0,102,204);
+	color: rgb(200,200,200);
+}
+</string>
+             </property>
+             <property name="editable">
+              <bool>false</bool>
+             </property>
+             <property name="currentText">
+              <string>Seleciona uma Lista</string>
+             </property>
+             <property name="placeholderText">
+              <string>Seleciona uma Lista</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Test1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Test2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Test3</string>
+              </property>
+             </item>
+            </widget>
+            <widget class="QListView" name="list_miembros">
+             <property name="geometry">
+              <rect>
+               <x>15</x>
+               <y>221</y>
+               <width>180</width>
+               <height>201</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QListView{
+	border: 2px solid rgb(120,120,120);
+	border-radius: 5px;
+	padding: 1px 3px;
+	background-color: rgb(79,79,79);
+	color: rgb(185, 185, 185);
+}
+QListView:hover{
+	border: 2px solid rgb(70,70,70);
+}
+QListView:focus{
+	border: 2px solid rgb(0,102,204);
+	color: rgb(200,200,200);
+}</string>
+             </property>
+            </widget>
+            <widget class="QListView" name="list_etiquetas">
+             <property name="geometry">
+              <rect>
+               <x>200</x>
+               <y>221</y>
+               <width>161</width>
+               <height>201</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QListView{
+	border: 2px solid rgb(120,120,120);
+	border-radius: 5px;
+	padding: 1px 3px;
+	background-color: rgb(79,79,79);
+	color: rgb(185, 185, 185);
+}
+QListView:hover{
+	border: 2px solid rgb(70,70,70);
+}
+QListView:focus{
+	border: 2px solid rgb(0,102,204);
+	color: rgb(200,200,200);
+}</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="pushButton_create">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>440</y>
+               <width>161</width>
+               <height>35</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+	border: 2px solid rgb(120,120,120);
+	border-radius: 5px;
+	padding: 1px 3px;
+	background-color: rgb(79,79,79);
+	color: rgb(185, 185, 185);
+}
+QPushButton:hover{
+	border: 2px solid rgb(70,70,70);
+}
+QPushButton:pressed{
+	background-color: rgb(0, 102,204);
+	border: 2px solid rgb(0,102,204);
+	color: rgb(200,200,200);
+}</string>
+             </property>
+             <property name="text">
+              <string>Create</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_miembros">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>206</y>
+               <width>47</width>
+               <height>13</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">	color: rgb(185, 185, 185);
+</string>
+             </property>
+             <property name="text">
+              <string>Miembros</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_etiquetas">
+             <property name="geometry">
+              <rect>
+               <x>205</x>
+               <y>206</y>
+               <width>47</width>
+               <height>13</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">	color: rgb(185, 185, 185);
+</string>
+             </property>
+             <property name="text">
+              <string>Etiquetas</string>
+             </property>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="bottom_bar">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(98, 114, 164);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="file_rc.qrc"/>
+  <include location="file_rc.qrc"/>
+ </resources>
+ <connections/>
+</ui>

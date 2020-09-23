@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="close_image">
+    <file>img/closeicon2.png</file>
+  </qresource>
+  <qresource prefix="icon">
+    <file>img/trello_and_movidesk_icone.png</file>
+  </qresource>
+  <qresource prefix="logo">
+    <file>img/trello_and_movidesk.png</file>
+  </qresource>
+</RCC>
