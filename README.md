@@ -2,7 +2,7 @@
 
 # Cria Cards no Trello de Movidesk 
 
-Programa de escritorio que criar cards no trello a partir de tickets registrados no movidesk.
+Programa de escritorio que cria cards no trello a partir de tickets registrados no movidesk.
 - Que é movidesk >  Plataforma de Atendimento (Help Desk) [O que é Movidesk?](https://www.movidesk.com)
 - Que é Trello > Plataforma de Organização de Projetos [O que é trello?](https://trello.com/c/Bbpc1cRl/2-o-que-é-trello)
 
@@ -18,7 +18,7 @@ O programa procura os tickets registrados no movidesk, e através da interface �
 
 ### Requisitos
 
-- [x] É necessário ter Pip e Python instalado e configurados como variáveis de ambiente. Feito isso, você deve instalar `pipenv` da seguinte forma.
+- [x] É necessário ter Pip e [Python 3.8.1](https://www.python.org/ftp/python/3.8.1/python-3.8.1-amd64.exe) instalado e configurados como variáveis de ambiente. Feito isso, você deve instalar `pipenv` da seguinte forma.
 ```
 pip install pipenv
 ```
